@@ -10,7 +10,6 @@ class  MyConnexion:
         self.__cursor = self.__connexion.cursor()
 
     def query(self,request,params:None=[]):
-        print('MyConnexion query')
         self.__cursor.execute(request,params)
         return self.__cursor
     

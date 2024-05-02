@@ -18,14 +18,14 @@ def get_one():
     print("get_one :", personne)
 
 
+try:
+    def user_create_one() -> str:
+        user_is_created: tuple[bool, str] = user_srv.user_create_one(
+            'jonh', 'wick', 'toto2@gmail.com', 'password')
+        print('User is created :', user_is_created[0])
+        print('User is created message :', user_is_created[1])
+except Exception as e:
+    print(f"une error est survenue pendant operation  ({e})")
 
-def user_create_one()->str:
-    user_is_created:tuple[bool,str] = user_srv.user_create_one('jonh','wick','toto@gmail.com','password')
-    print('User is created :',user_is_created[0])
-    print('User is created message :',user_is_created[1])
 
 user_create_one()
-
-
-# get_all()
-# get_one()

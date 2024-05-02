@@ -1,7 +1,8 @@
 
 
 class User:
-    def __init__(self, id: str = '',
+    def __init__(self, 
+                 id: str = '',
                  first_name: str = '',
                  last_name: str = '',
                  email: str = '',
@@ -64,11 +65,8 @@ class User:
         self.__current_password = value
 
 
-
-# cela permet d'afficher object dans print
-
     def __str__(self) -> str:
-        return f' id:{self._num} nom:{self._nom} prenom:{self._prenom}'
+        return f' id:{self._id} nom:{self._first_name} prenom:{self._last_name}'
 
     def __repr__(self) -> str:
-        return f'{self.nom} {self.prenom} {self.age}'
+         return f' id:{self._id} nom:{self._first_name} prenom:{self._last_name}'
