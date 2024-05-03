@@ -1,0 +1,17 @@
+## ERROR ## =>  | user id [id user] | operation : test | date : 2024-05-03 13:45:21.230231 
+## ERROR ## =>  | user id [id user] | operation : test | date : 2024-05-03 13:45:24.879226 
+## LOG ## =>  | user id [id user] | operation : test | date : 2024-05-03 13:45:37.152824 
+## ERROR ## =>  | user id [08f86754-c47f-4370-8b1d-33a33931c4b7] | operation : AppActions.USER_CREATE_ACCOUNT : msg : Mail existe déja | date : 2024-05-03 14:55:03.623521 | error : []  
+## LOG ## =>  | user id [950577e3-732f-468e-abdb-b7fa615f6fcd] | operation : AppActions.USER_CREATE_ACCOUNT : msg : Utilisateur crée avec succès | date : 2024-05-03 14:55:58.377984 | error : []  
+## LOG ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_CREATE_ACCOUNT : msg : Utilisateur crée avec succès | date : 2024-05-03 14:58:23.532486 | error : []  
+## ERROR ## =>  | user id [] | operation : AppActions.USER_LOGIN : msg : Authentification incorrect | date : 2024-05-03 15:02:55.238520 | error : [None]  
+## ERROR ## =>  | user id [] | operation : AppActions.USER_LOGIN : msg : Authentification incorrect | date : 2024-05-03 15:05:15.084589 | error : [None]  
+## ERROR ## =>  | user id [] | operation : AppActions.USER_LOGIN : msg : Authentification incorrect | date : 2024-05-03 15:05:22.550425 | error : [None]  
+## ERROR ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_LOGIN : msg : Authentification incorrect | date : 2024-05-03 15:05:36.674908 | error : []  
+## LOG ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_LOGIN : msg : Utilisateur crée avec succès | date : 2024-05-03 15:05:53.873038 | error : []  
+## ERROR ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_CHANGE_PASSWORD : msg : Authentification incorrect | date : 2024-05-03 15:06:32.480451 | error : []  
+## ERROR ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_CHANGE_PASSWORD : msg : Authentification incorrect | date : 2024-05-03 15:07:05.588625 | error : []  
+## ERROR ## =>  | user id [] | operation : AppActions.USER_CHANGE_PASSWORD : msg : Le nouveau mot de passe doit être differente de mot de passe actuel! | date : 2024-05-03 15:07:21.969728 | error : []  
+## LOG ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_CHANGE_PASSWORD : msg : Le nouveau mot de passe enregistré avec succès! | date : 2024-05-03 15:08:02.463100 | error : []  
+## ERROR ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_LOGIN : msg : Authentification incorrect | date : 2024-05-03 15:08:17.633029 | error : []  
+## LOG ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_CHANGE_PASSWORD : msg : Le nouveau mot de passe enregistré avec succès! | date : 2024-05-03 15:08:40.740446 | error : []  
