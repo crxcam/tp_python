@@ -12,7 +12,7 @@ user_email: str = ''
 user_first_name: str = ''
 user_last_name: str = ''
 
-
+#region     LOGIC CODE
 def btn_create_user():
     label_response_operation.config(text="")
     user_create_one(entry_first_name.get(), entry_last_name.get(),
@@ -67,10 +67,10 @@ except Exception as e:
     response = user_srv.build_response_and_log(
         True, user_srv.generic_error_response, None, AppActions.USER_DELETE_ACCOUNT, str(e))
 
+#endregion     LOGIC CODE
 
 
-
-
+#region     UI
 frame = Tk()
 width = 600
 height = 500
@@ -120,6 +120,9 @@ label_response_operation = Label(frame, text="")
 
 
 frame.mainloop()
+#endregion  UI
+
+
 
 
 # user_create_one('jonh', 'wick', 'toto2@gmail.com', 'password')
@@ -128,3 +131,5 @@ frame.mainloop()
 # user_delete('toto2@gmail.com')
 
 # log_srv.save_log(False, "test", "id user")
+
+# Todo :change password , delete account , fichier boite dialog look tp document dans download
