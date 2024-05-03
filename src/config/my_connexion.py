@@ -18,6 +18,11 @@ class  MyConnexion:
         self.__connexion.commit()
         return self.__cursor
     
+    def update(self,request,params:None=[]):
+        self.__cursor.execute(request,params)
+        self.__connexion.commit()
+        return self.__cursor
+    
     def close(self):
         self.__cursor.close()
         self.__connexion.close()

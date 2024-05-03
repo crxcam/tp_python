@@ -6,15 +6,13 @@ class User:
                  first_name: str = '',
                  last_name: str = '',
                  email: str = '',
-                 last_password: str = '',
-                 current_password: str = ''
+                 password: str = ''
                  ) -> None:
         self.__id = id
         self.__first_name = first_name
         self.__last_name = last_name
         self.__email = email
-        self.__last_password = last_password
-        self.__current_password = current_password
+        self.__password = password
 
     @property
     def _id(self):
@@ -49,20 +47,12 @@ class User:
         self.__email = value
 
     @property
-    def _last_password(self):
-        return self.__last_password
+    def _password(self):
+        return self.__password
 
-    @_last_password.setter
-    def _last_password(self, value):
-        self.__last_password = value
-
-    @property
-    def _current_password(self):
-        return self.__current_password
-
-    @_current_password.setter
-    def _current_password(self, value):
-        self.__current_password = value
+    @_password.setter
+    def _password(self, value):
+        self.__password = value
 
 
     def __str__(self) -> str:

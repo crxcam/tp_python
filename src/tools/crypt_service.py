@@ -11,7 +11,7 @@ def generated_sel(value: str) -> str:
     return sel
 
 
-def generated_tuple(range_max:str) -> tuple[int]:
+def generated_tuple(range_max: str) -> tuple[int]:
     value: int = range_max
     result = []
     while value > 0:
@@ -37,7 +37,7 @@ def hash_password(passwors_input: str, _tuple: tuple[int]) -> str:
     return password_hash
 
 
-def crypt(input_clear_pswd: str) -> tuple[str, int]:
+def crypt(input_clear_pswd: str) -> tuple[str, int, str]:
     sel = generated_sel(input_clear_pswd)
     paswd_concat = input_clear_pswd+sel
     _tuple = generated_tuple(len(paswd_concat))
@@ -45,16 +45,9 @@ def crypt(input_clear_pswd: str) -> tuple[str, int]:
     return sel, _tuple, password_hashed
 
 
-def compare_password(input_pswd: str, sel: str, _tuple: tuple[int], db_passwd: str) -> bool:
-    input_pswd_hashed: str = hash_password(input_pswd+sel, _tuple)
+def compare_password(input_pswd: str, salt: str, _tuple: tuple[int], db_passwd: str) -> bool:
+    if len(_tuple)/2 != len(input_pswd):
+        return False
+
+    input_pswd_hashed: str = hash_password(input_pswd+salt, _tuple)
     return input_pswd_hashed == db_passwd
-
-
-# crypt_result = crypt('toto87fsd')
-# comp_pswd =  compare_password('toto87fsd',':\nS"9VGK1',(12, 15, 12, 15, 8, 2, 4, 6, 6, 4, 8, 12, 9, 2, 6, 3, 2, 13),'\x00~\x00~@9jyj>\x12_+;\\JM>')
-# clear pswd : 'toto87fsd'
-# tuple (12, 15, 12, 15, 8, 2, 4, 6, 6, 4, 8, 12, 9, 2, 6, 3, 2, 13)
-# sel ':\nS"9VGK1'
-# db_pass  '\x00~\x00~@9jyj>\x12_+;\\JM>'
-# print('crypt result :', crypt_result)
-# print('compare_password :', comp_pswd)

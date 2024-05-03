@@ -12,10 +12,10 @@ class UserDao (GenericDao[User]):
         self.__db = MyConnexion()
 
     def save(self, user: User) -> User:
-        query = 'insert into user (id,first_name,last_name,email,last_password,current_password) values(%s,%s,%s,%s,%s,%s)'
-        params = [user._id, user._first_name,user._last_name,user._email,user._last_password,user._current_password]
-        return self.__db.save(query,params)
-
+        query = 'insert into user (id,first_name,last_name,email,password) values(%s,%s,%s,%s,%s)'
+        params = [user._id, user._first_name, user._last_name,
+                  user._email, user._password]
+        return self.__db.save(query, params)
 
     def update(self, user: User) -> User:
         pass
@@ -28,12 +28,15 @@ class UserDao (GenericDao[User]):
 
     def find_by_id(self, id) -> Optional[User]:
         query = 'select * from user where id = %s'
-        params=[id]
-        return self.__db.query(query,params).fetchone()
-    
+        params = [id]
+        return self.__db.query(query, params).fetchone()
 
-    def email_exist(self, email) -> bool:
+    def find_by_email(self, email) -> User | None:
         query = 'select * from user where email = %s'
-        params=[email]
-        user = self.__db.query(query,params).fetchone()
-        return user is not None
+        params = [email]
+        return self.__db.query(query, params).fetchone()
+
+    def update_password(self, id, new_password) -> User | None:
+        query = 'update user set password = %s   where id = %s '
+        params = [new_password, id]
+        return self.__db.update(query, params)
