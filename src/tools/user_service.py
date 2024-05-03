@@ -15,6 +15,7 @@ import uuid
 
 user_dao = UserDao()
 generic_error_response: str = "Une error est survenue pendant l'operation"
+generic_succes_response: str = "Operation effectuée avec sucées"
 
 
 def build_response_and_log(
@@ -24,13 +25,13 @@ def build_response_and_log(
     log_action: AppActions = AppActions.USER_LOGIN,
     error_content: str | None = '',
     user_id: str = ''
-) -> tuple[bool, str]:
+) -> tuple[bool, str,str]:
     #   save log
     log_srv.save_log(is_error, f"{log_action} : msg : {
                      msg}", user_id, error_content)
     #   build response
     if not is_error:
-        return is_error, f"{user._first_name},{user._last_name},{user._email}"
+        return is_error, msg,f"{user._first_name},{user._last_name},{user._email}"
     return False, msg
 
 
@@ -49,7 +50,7 @@ def build_user_and_account(email: str) -> Optional[tuple[User, Account]:None]:
 def user_create_one(first_name: str = '',
                     last_name: str = '',
                     email: str = '',
-                    clear_password: str = '') -> tuple[bool, str]:
+                    clear_password: str = '')-> tuple[bool, str,str]:
     #   check mail exist
     user = user_dao.find_by_email(email)
     if user:
@@ -69,7 +70,7 @@ def user_create_one(first_name: str = '',
     return build_response_and_log(False, 'Utilisateur crée avec succès', user, AppActions.USER_CREATE_ACCOUNT,'',user._id)
 
 
-def user_login(email: str, input_pswd: str) -> tuple[bool, str]:
+def user_login(email: str, input_pswd: str) -> tuple[bool, str,str]:
     tuple_user_account = build_user_and_account(email)
     if not tuple_user_account:
         return build_response_and_log(True, 'Authentification incorrect', None, AppActions.USER_LOGIN,None,'')
@@ -77,10 +78,10 @@ def user_login(email: str, input_pswd: str) -> tuple[bool, str]:
     account: Account = tuple_user_account[1]
     if not crypt_service.compare_password(input_pswd, account._salt, account._tup, user._password):
         return build_response_and_log(True, 'Authentification incorrect', user, AppActions.USER_LOGIN,'',user._id)
-    return build_response_and_log(False,  'Utilisateur crée avec succès', user, AppActions.USER_LOGIN,'',user._id)
+    return build_response_and_log(False,  'Utilisateur connecté avec succès', user, AppActions.USER_LOGIN,'',user._id)
 
 
-def replace_password(current_password: str, new_password: str, email: str) -> tuple[bool, str]:
+def replace_password(current_password: str, new_password: str, email: str) -> tuple[bool, str,str]:
     if current_password == new_password:
         return build_response_and_log(True, 'Le nouveau mot de passe doit être differente de mot de passe actuel!', None, AppActions.USER_CHANGE_PASSWORD,'','')
     tuple_user_account = build_user_and_account(email)
@@ -96,7 +97,7 @@ def replace_password(current_password: str, new_password: str, email: str) -> tu
     return build_response_and_log(False, 'Le nouveau mot de passe enregistré avec succès!', user, AppActions.USER_CHANGE_PASSWORD,'',user._id)
 
 
-def user_delete(email:str)-> tuple[bool, str]:
+def user_delete(email:str)-> tuple[bool, str,str]:
     tuple_user_account = build_user_and_account(email)
     user: User = tuple_user_account[0]
     account: Account = tuple_user_account[1]
