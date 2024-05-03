@@ -26,3 +26,8 @@ class AccountDao (GenericDao[Account]):
         params = [tup, salt, id]
         return self.__db.update(query, params)
     
+    def delete(self, id:str) -> None:
+        query = 'delete  from account where id = %s'
+        params = [id]
+        return self.__db.delete(query, params).fetchone()
+    

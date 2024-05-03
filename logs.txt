@@ -15,3 +15,5 @@
 ## LOG ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_CHANGE_PASSWORD : msg : Le nouveau mot de passe enregistré avec succès! | date : 2024-05-03 15:08:02.463100 | error : []  
 ## ERROR ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_LOGIN : msg : Authentification incorrect | date : 2024-05-03 15:08:17.633029 | error : []  
 ## LOG ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_CHANGE_PASSWORD : msg : Le nouveau mot de passe enregistré avec succès! | date : 2024-05-03 15:08:40.740446 | error : []  
+## LOG ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_DELETE_ACCOUNT : msg : Le compte a été supprimé avec succès! | date : 2024-05-03 15:34:39.938862 | error : []  
+## LOG ## =>  | user id [c73d9f36-8d3f-4904-8545-bfe0b4275372] | operation : AppActions.USER_DELETE_ACCOUNT : msg : Le compte a été supprimé avec succès! | date : 2024-05-03 15:36:43.429136 | error : []  

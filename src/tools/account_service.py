@@ -29,3 +29,6 @@ def tranform_string_to_tuple(value: str) -> tuple[int]:
 
 def update_password_data(id: str = '', tup: tuple[int] = [], salt: str = '') -> Account | None:
     return account_dao.update_password_data(id, str(tup), salt)
+
+def delete_account(id:str)-> None:
+    account_dao.delete(id)

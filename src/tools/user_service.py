@@ -94,3 +94,13 @@ def replace_password(current_password: str, new_password: str, email: str) -> tu
     account_service.update_password_data(
         account._id, account_update_data[1], account_update_data[0])
     return build_response_and_log(False, 'Le nouveau mot de passe enregistré avec succès!', user, AppActions.USER_CHANGE_PASSWORD,'',user._id)
+
+
+def user_delete(email:str)-> tuple[bool, str]:
+    tuple_user_account = build_user_and_account(email)
+    user: User = tuple_user_account[0]
+    account: Account = tuple_user_account[1]
+    account_service.delete_account(account._id)
+    user_dao.delete(user._id)
+    return build_response_and_log(False, 'Le compte a été supprimé avec succès!', user, AppActions.USER_DELETE_ACCOUNT,'',user._id)
+    

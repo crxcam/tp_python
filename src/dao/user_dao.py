@@ -20,13 +20,15 @@ class UserDao (GenericDao[User]):
     def update(self, user: User) -> User:
         pass
 
-    def delete(self, user: User) -> None:
-        pass
+    def delete(self, id:str) -> None:
+        query = 'delete from user where id = %s'
+        params = [id]
+        return self.__db.delete(query, params).fetchone()
 
     def find_all(self) -> Iterable[User]:
         return self.__db.query('select * from user').fetchall()
 
-    def find_by_id(self, id) -> Optional[User]:
+    def find_by_id(self, id:str) -> Optional[User]:
         query = 'select * from user where id = %s'
         params = [id]
         return self.__db.query(query, params).fetchone()

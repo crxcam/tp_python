@@ -41,8 +41,18 @@ except Exception as e:
         True, user_srv.generic_error_response, None, AppActions.USER_CHANGE_PASSWORD, str(e))
 
 
-#user_create_one('jonh', 'wick', 'toto2@gmail.com', 'password')
-#user_login('toto2@gmail.com', 'password')
-#replace_password('passwordk','password','toto2@gmail.com')
+try:
+    def user_delete(email: str) -> str:
+        response: tuple[bool, str] = user_srv.user_delete(email)
+        print('User user_delete error :', response[0])
+        print('User user_delete message :', response[1])
+except Exception as e:
+    response = user_srv.build_response_and_log(
+        True, user_srv.generic_error_response, None, AppActions.USER_DELETE_ACCOUNT, str(e))
+
+# user_create_one('jonh', 'wick', 'toto2@gmail.com', 'password')
+# user_login('toto2@gmail.com', 'password')
+# replace_password('passwordk','password','toto2@gmail.com')
+# user_delete('toto2@gmail.com')
 
 # log_srv.save_log(False, "test", "id user")
